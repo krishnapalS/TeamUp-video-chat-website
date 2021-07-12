@@ -1,5 +1,5 @@
 {
-  "name": "mirotalk",
+  "name": "teamup",
   "version": "1.0.0",
   "description": "A free WebRTC browser-based video call",
   "main": "server.js",
@@ -9,11 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/miroslavpejic85/mirotalk"
+    "url": "git+https://github.com/krishnapalS/TeamUp-video-chat-website"
   },
-  "author": "Miroslav Pejic",
-  "license": "CC-BY-NC-ND-4.0",
-  "homepage": "https://github.com/miroslavpejic85/mirotalk",
+  "author": "Krishna Pal Deora",
+  "homepage": "https://github.com/krishnapalS/TeamUp-video-chat-website",
   "dependencies": {
     "compression": "^1.7.4",
     "dotenv": "^10.0.0",

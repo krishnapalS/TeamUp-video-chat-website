@@ -901,7 +901,7 @@ strong {
 
 .button-primary {
   color: #f9faff;
-  background-color: #376df9;
+  background-color: maroon;
 }
 
 .button-primary:hover {
@@ -1317,12 +1317,6 @@ textarea.form-input {
 .invert-color .form-checkbox,
 .invert-color .form-radio {
   color: #292b32;
-}
-
-.invert-color .form-checkbox input:checked,
-.invert-color .form-radio input:checked {
-  /*background-color: !important;*/
-  /*border-color: !important*/
 }
 
 .form-group {
@@ -2700,10 +2694,9 @@ ul.pricing-item-features-list li {
   display: inline-flex;
   border-radius: 50%;
   background: radial-gradient(
-    circle at bottom,
-    #376df9 0%,
-    #ff79af 50%,
-    #ff8d74 100%
+    circle at top right,
+      yellow,
+      #f06d06 50%
   );
 }
 
@@ -2840,8 +2833,10 @@ ul.pricing-item-features-list li.is-checked::after {
 .cta-inner {
   padding-left: 16px;
   padding-right: 16px;
-  background-color: #376df9;
-  background: linear-gradient(100deg, #376df9 0, #ff5fa0 75%, #ffc55a 100%);
+  
+  background-color: #00DBDE;
+  background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+
 }
 
 @media (min-width: 641px) {

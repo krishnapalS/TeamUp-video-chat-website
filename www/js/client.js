@@ -2,14 +2,14 @@
 "use strict"; // https://www.w3schools.com/js/js_strict.asp
 
 const welcomeImg = "../images/welcome.png";
-const shareUrlImg = "../images/share-url.png";
+const shareUrlImg = "../images/share-url.jpeg";
 const leaveRoomImg = "../images/bye.png";
 const confirmImg = "../images/illustration-section-01.svg";
-const fileSharingImg = "../images/share-file.png";
+const fileSharingImg = "../images/share-files.png";
 const aboutImg = "../images/about.png";
 const peerLoockupUrl = "https://extreme-ip-lookup.com/json/";
 const avatarApiUrl = "https://eu.ui-avatars.com/api";
-const notifyBySound = true; // turn on - off sound notifications
+const notifyBySound = true; // Turn ON - OFF sound notifications
 const notifyAddPeer = "../audio/addPeer.mp3";
 const notifyDownload = "../audio/download.mp3";
 const notifyKickedOut = "../audio/kickedOut.mp3";
@@ -31,7 +31,7 @@ let callStartTime;
 let callElapsedTime;
 let recStartTime;
 let recElapsedTime;
-let mirotalkTheme = "neon"; // neon - dark - forest - ghost ...
+let teamupTheme = "neon"; // neon - dark - forest - ghost ...
 let swalBackground = "rgba(0, 0, 0, 0.7)"; // black - #16171b - transparent ...
 let signalingServerPort = 3000; // must be same of server PORT
 let signalingServer = getServerUrl();
@@ -233,7 +233,7 @@ function getHtmlElementsById() {
   audioInputSelect = getId("audioSource");
   audioOutputSelect = getId("audioOutput");
   videoSelect = getId("videoSource");
-  themeSelect = getId("mirotalkTheme");
+  themeSelect = getId("teamupTheme");
   // my conference name, hand, video - audio status
   myVideoParagraph = getId("myVideoParagraph");
   myHandStatusIcon = getId("myHandStatusIcon");
@@ -492,8 +492,8 @@ function thereIsPeerConnections() {
  * On body load Get started
  */
 function initPeer() {
-  // set mirotalk theme
-  setTheme(mirotalkTheme);
+  // set TeamUp Theme
+  setTheme(teamupTheme);
 
   // check if peer is done for WebRTC
   if (!isWebRTCSupported) {
@@ -530,7 +530,7 @@ function initPeer() {
       allowOutsideClick: false,
       background: swalBackground,
       position: "center",
-      imageAlt: "mirotalk-name",
+      imageAlt: "teamup-name",
       imageUrl: welcomeImg,
       title: "Enter your name",
       input: "text",
@@ -601,7 +601,7 @@ function initPeer() {
       background: swalBackground,
       position: "center",
       title: "<strong>Welcome " + myPeerName + "</strong>",
-      imageAlt: "mirotalk-welcome",
+      imageAlt: "teamup-welcome",
       imageUrl: welcomeImg,
       html:
         `
@@ -818,7 +818,7 @@ function initPeer() {
         console.log("Datachannel event " + peer_id, event);
         event.channel.onmessage = (msg) => {
           switch (event.channel.label) {
-            case "mirotalk_chat_channel":
+            case "teamup_chat_channel":
               let dataMessage = {};
               try {
                 dataMessage = JSON.parse(msg.data);
@@ -827,7 +827,7 @@ function initPeer() {
                 console.log(err);
               }
               break;
-            case "mirotalk_file_sharing_channel":
+            case "teamup_file_sharing_channel":
               handleDataChannelFileSharing(msg.data);
               break;
           }
@@ -1088,14 +1088,14 @@ function initPeer() {
 } // end [initPeer]
 
 /**
- * Set mirotalk theme neon - dark - forest - sky - ghost
+ * Set TeamUp Theme neon - dark - forest - sky - ghost
  * @param {*} theme
  */
 function setTheme(theme) {
   if (!theme) return;
 
-  mirotalkTheme = theme;
-  switch (mirotalkTheme) {
+  teamupTheme = theme;
+  switch (teamupTheme) {
     case "neon":
       // neon theme
       swalBackground = "rgba(0, 0, 0, 0.7)";
@@ -1852,7 +1852,6 @@ function setMyHandBtn() {
 
 /**
  * Whiteboard
- * https://r8.whiteboardfox.com (good alternative)
  */
 function setMyWhiteboardBtn() {
   // not supported for mobile
@@ -2196,7 +2195,7 @@ async function shareRoomUrl() {
       background: swalBackground,
       position: "center",
       title: "Share the Room",
-      imageAlt: "mirotalk-share",
+      imageAlt: "teamup-share",
       imageUrl: shareUrlImg,
       html:
         `
@@ -2613,7 +2612,7 @@ function stopStreamRecording() {
  * Set Record Button UI on change theme
  */
 function setRecordButtonUi() {
-  if (mirotalkTheme == "ghost") {
+  if (teamupTheme == "ghost") {
     recordStreamBtn.style.setProperty("background-color", "transparent");
   } else {
     recordStreamBtn.style.setProperty("background-color", "white");
@@ -2774,7 +2773,7 @@ function hideChatRoomAndEmojiPicker() {
  */
 function createChatDataChannel(peer_id) {
   chatDataChannels[peer_id] = peerConnections[peer_id].createDataChannel(
-    "mirotalk_chat_channel"
+    "teamup_chat_channel"
   );
 }
 
@@ -3554,7 +3553,7 @@ function remoteWbAction(action) {
  */
 function createFileSharingDataChannel(peer_id) {
   fileSharingDataChannels[peer_id] = peerConnections[peer_id].createDataChannel(
-    "mirotalk_file_sharing_channel"
+    "teamup_file_sharing_channel"
   );
   fileSharingDataChannels[peer_id].binaryType = "arraybuffer";
   fileSharingDataChannels[peer_id].addEventListener(
@@ -3722,7 +3721,7 @@ function selectFileToShare() {
   Swal.fire({
     allowOutsideClick: false,
     background: swalBackground,
-    imageAlt: "mirotalk-file-sharing",
+    imageAlt: "teamup-file-sharing",
     imageUrl: fileSharingImg,
     position: "center",
     title: "Share the file",
@@ -3824,7 +3823,7 @@ function endDownload() {
           " size " +
           bytesToSize(incomingFileInfo.fileSize),
         imageUrl: e.target.result,
-        imageAlt: "mirotalk-file-img-download",
+        imageAlt: "teamup-file-img-download",
         showDenyButton: true,
         confirmButtonText: `Save`,
         denyButtonText: `Cancel`,
@@ -3847,7 +3846,7 @@ function endDownload() {
     Swal.fire({
       allowOutsideClick: false,
       background: swalBackground,
-      imageAlt: "mirotalk-file-download",
+      imageAlt: "teamup-file-download",
       imageUrl: fileSharingImg,
       position: "center",
       title: "Received file",
@@ -3961,7 +3960,7 @@ function disableAllPeers(element) {
   Swal.fire({
     background: swalBackground,
     position: "center",
-    imageAlt: "mirotalk-disable-" + element,
+    imageAlt: "teamup-disable-" + element,
     imageUrl: confirmImg,
     title:
       element == "audio"
@@ -4088,7 +4087,7 @@ function getAbout() {
     background: swalBackground,
     position: "center",
     title: "<strong> TeamUp </strong>",
-    imageAlt: "mirotalk-about",
+    imageAlt: "teamup-about",
     imageUrl: aboutImg,
     html: `
     <br/>
@@ -4115,7 +4114,7 @@ function leaveRoom() {
   Swal.fire({
     background: swalBackground,
     position: "center",
-    imageAlt: "mirotalk-leave",
+    imageAlt: "teamup-leave",
     imageUrl: leaveRoomImg,
     title: "Leave this room?",
     showDenyButton: true,
