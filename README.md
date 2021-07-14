@@ -1,3 +1,10 @@
+# TeamUp
+
+ 🖥️ `A Microsoft Teams clone, having free WebRTC browser-based video call, chat and screen sharing featues` 🖥️
+
+<br>
+
+
 ### TeamUp Video-Chat Website LIVE : https://teamup-call.herokuapp.com/
 
 #### YouTube video link : https://www.youtube.com/watch?v=XjbPlz6ZPDI
