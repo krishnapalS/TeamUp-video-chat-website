@@ -3,6 +3,8 @@
 #### YouTube video link : https://www.youtube.com/watch?v=XjbPlz6ZPDI
 
 
+#### Presentation explaining all features of TeamUp : https://docs.google.com/presentation/d/1RRb3f6tbVXkKU8ZO3dDKnmrN1Bg6sNUS_MWifWtmpa0/edit?usp=sharing
+
 
 
 
