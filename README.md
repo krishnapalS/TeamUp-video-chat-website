@@ -4,6 +4,12 @@
 
 <br>
 
+![alt text](http://www.marshall.edu/it/files/microsoft-team-2019.png)
+
+
+
+
+
 
 ### TeamUp Video-Chat Website LIVE : https://teamup-call.herokuapp.com/
 
@@ -55,5 +61,10 @@ npm start
 ```
 
 - Open http://localhost:3000 in browser
+
+
+
+### TeamUp Chat-Room Repository : https://github.com/krishnapalS/TeamUp-Chat
+
 
 
